@@ -1,0 +1,8 @@
+name: bmad-tech-blog-pack
+version: '0.1.0'
+short-title: Tech Blog Pack (CN)
+author: nick
+description: >-
+  一个用于“从多份参考资料中提炼角度并生成中文技术博客”的 BMAD 扩展包。
+  MVP 仅支持本地离线文本/Markdown，输出中文，放置在本仓库。
+slashPrefix: bmad-blog

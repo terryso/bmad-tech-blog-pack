@@ -1,0 +1,16 @@
+angles:
+  - angle: ''
+    hook: ''
+    why: ''
+    scores:
+      novelty: 0
+      controversy: 0
+      utility: 0
+      relevance: 0
+      writability: 0
+    risks: ''
+    total-score: 0
+recommendations:
+  top3:
+    - angle: ''
+      reason: ''
