@@ -4,3 +4,18 @@ references:
     source: ''
     link: ''
     note: ''
+
+template:
+  id: citation-list-tmpl
+  name: Citation List Template (CN)
+  version: 1.0.0
+  description: 用于输出 Evidence Map / 引用清单（观点-引文-来源-链接-备注）。
+
+workflow:
+  elicitation: false
+  allow_skip: true
+
+sections:
+  - id: references
+    title: 引用清单
+    instruction: 汇总正文中以 [n] 标识的引用，确保 claim 与 quote 对应并提供来源与链接。

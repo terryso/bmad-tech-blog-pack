@@ -7,6 +7,30 @@ audience: '工程师/架构师/团队负责人'
 tags: []
 seo-keywords: []
 
+template:
+  id: blog-article-tmpl
+  name: Blog Article Template (CN)
+  version: 1.0.0
+  description: 标准化中文技术博客产物的结构与元信息输出。
+
+workflow:
+  elicitation: false
+  allow_skip: true
+
+sections:
+  - id: meta
+    title: 元信息
+    instruction: 填写标题、slug、作者、日期、受众、tags、seo-keywords、reading-time。
+  - id: summary
+    title: 摘要与 TL;DR
+    instruction: 撰写 120-160 字摘要与 3-5 条 TL;DR。
+  - id: key_takeaways
+    title: 关键信息卡片
+    instruction: 提炼 2-4 条关键结论或建议。
+  - id: narrative
+    title: 叙事结构
+    instruction: 按 Hook / Why-Now / What-And-How / Evidence-Map / Pitfalls / Actionable-Steps / Further-Reading 输出。
+
 summary: ''  # 120-160字中文摘要
 
 tldr:

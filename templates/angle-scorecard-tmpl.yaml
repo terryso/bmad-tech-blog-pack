@@ -14,3 +14,21 @@ recommendations:
   top3:
     - angle: ''
       reason: ''
+
+template:
+  id: angle-scorecard-tmpl
+  name: Angle Scorecard Template (CN)
+  version: 1.0.0
+  description: 用于生成选题角度候选及量化评分，并汇总推荐 Top 3。
+
+workflow:
+  elicitation: false
+  allow_skip: true
+
+sections:
+  - id: candidates
+    title: 候选角度与评分
+    instruction: 产出 7-10 个角度候选，并对每个角度给出 Hook、Why、风险与五维度打分（0-5）。
+  - id: recommendations
+    title: Top 3 推荐
+    instruction: 汇总推荐 3 个角度，并给出取舍理由与风险提示。

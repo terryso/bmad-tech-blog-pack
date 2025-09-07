@@ -10,7 +10,9 @@
 
 - 模板：`templates/`（blog-article-tmpl.yaml, angle-scorecard-tmpl.yaml, citation-list-tmpl.yaml）
 
-- 工作流：`workflows/blog-from-refs.md`
+- 检查清单：`checklists/seo-readiness-checklist.md`
+
+- 工作流：`workflows/blog-from-refs.yaml`, `workflows/blog-one-shot.yaml`
 
 ## Quickstart（离线、中文、放在本仓库）
 
@@ -44,7 +46,7 @@
 
 - 代理：`agents/blog-orchestrator.md`
 
-- 团队：`agent-teams/blog-team.yaml`（research-synthesizer → angle-finder → outline-architect → copywriter → doc-editor → seo-strategist）
+- 团队：`agent-teams/agent-team.yaml`
 
 ### 两种模式
 
@@ -66,7 +68,16 @@
 
 ## 一键工作流
 
-- `workflows/blog-one-shot.md`：面向已有资料的一次性端到端产出，产物位置：
+- 机器可执行：`workflows/blog-one-shot.yaml`
+  - 面向已有资料的一次性端到端产出，产物位置：
   - 草稿：`docs/blog/drafts/`
   - 证据映射/角度：`docs/blog/evidence/`
   - 社媒物料：`docs/blog/social/`
+
+## 规范状态与变更记录
+
+- Agents：已全部升级为“内嵌 YAML 完整定义”格式（包含 activation-instructions、persona、commands、dependencies、Startup Context）。
+- Templates：已标准化补充 `template/workflow/sections` 元信息，保持向后兼容。
+- Team：统一使用 `agent-teams/agent-team.yaml`（`bundle` 顶层键）。
+- Workflows：主推可执行的 `.yaml`（`workflows/blog-from-refs.yaml`, `workflows/blog-one-shot.yaml`）。
+- Checklists：新增 `checklists/seo-readiness-checklist.md` 用于发布前 SEO 质检。

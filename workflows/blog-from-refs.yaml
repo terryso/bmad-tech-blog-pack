@@ -1,0 +1,81 @@
+# <!-- Powered by BMAD™ Core -->
+# workflows/blog-from-refs.yaml
+name: blog-from-refs
+title: Blog From Refs Workflow (CN)
+description: |
+  面向已有多份离线文本/Markdown 资料的端到端中文技术博客产出流程。
+  覆盖资料清洗、观点-引文抽取、角度生成与评分、大纲、首稿、SEO 与落盘输出。
+
+triggers:
+  - command: /blog
+  - intent: "create tech blog from refs"
+
+inputs:
+  - refs
+  - audience
+  - topic
+
+agents:
+  - research-synthesizer
+  - angle-finder
+  - outline-architect
+  - copywriter
+  - doc-editor
+  - seo-strategist
+
+steps:
+  - id: ingest
+    title: 清理并标准化资料
+    agent: research-synthesizer
+    outputs: notes
+
+  - id: extract
+    title: 观点-引文配对
+    agent: research-synthesizer
+    inputs: notes
+    outputs: claims_quotes
+
+  - id: propose_angles
+    title: 生成角度与评分卡
+    agent: angle-finder
+    inputs: claims_quotes
+    uses: templates/angle-scorecard-tmpl.yaml
+    outputs: angles_yaml
+
+  - id: outline
+    title: 生成双层结构大纲
+    agent: outline-architect
+    inputs:
+      - claims_quotes
+      - angles_yaml
+    outputs: outline_md
+
+  - id: draft
+    title: 依据模板生成中文首稿
+    agent: copywriter
+    inputs:
+      - outline_md
+      - claims_quotes
+    uses: templates/blog-article-tmpl.yaml
+    outputs: draft_md
+
+  - id: seo
+    title: SEO 优化
+    agent: seo-strategist
+    inputs: draft_md
+    outputs: seo_result
+
+  - id: doc_out
+    title: 落盘输出到 docs/blog/
+    agent: doc-editor
+    inputs:
+      - draft_md
+      - claims_quotes
+      - angles_yaml
+    outputs: files_in_docs
+
+outputs:
+  - draft_md
+  - angles_yaml
+  - claims_quotes
+  - files_in_docs

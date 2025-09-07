@@ -1,0 +1,48 @@
+# <!-- Powered by BMAD™ Core -->
+# workflows/blog-one-shot.yaml
+name: blog-one-shot
+title: Blog One-Shot Workflow (CN)
+description: |
+  适用于已有 2-3 份离线文本/Markdown 参考资料的快速出稿流程，
+  自动串联资料清洗、观点-引文抽取、角度生成与评分、大纲、首稿、SEO 与落盘输出。
+
+triggers:
+  - command: /blog-one-shot
+  - intent: "one shot blog from refs"
+
+inputs:
+  - refs
+  - audience
+  - topic
+
+agents:
+  - research-synthesizer
+  - angle-finder
+  - outline-architect
+  - copywriter
+  - doc-editor
+  - seo-strategist
+
+steps:
+  - id: pipeline
+    title: 一键运行端到端流程
+    agent: blog-orchestrator
+    uses:
+      - tasks/ingest-sources.md
+      - tasks/extract-claims-quotes.md
+      - tasks/propose-angles.md
+      - tasks/generate-outline.md
+      - tasks/write-draft.md
+      - tasks/seo-polish.md
+      - tasks/doc-out.md
+    outputs:
+      - draft_md
+      - angles_yaml
+      - claims_quotes
+      - files_in_docs
+
+outputs:
+  - draft_md
+  - angles_yaml
+  - claims_quotes
+  - files_in_docs

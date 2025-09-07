@@ -1,0 +1,18 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: Tech Blog Team (CN)
+  icon: 🧠
+  description: 面向中文技术博客创作的编排团队，基于离线文本/Markdown 资料完成从证据萃取到首稿与 SEO 的端到端流程
+
+agents:
+  - research-synthesizer
+  - angle-finder
+  - outline-architect
+  - copywriter
+  - doc-editor
+  - seo-strategist
+  - blog-orchestrator
+
+workflows:
+  - blog-from-refs
+  - blog-one-shot
