@@ -1,10 +1,10 @@
 # bmad-tech-blog-pack (CN)
 
-面向中文技术博客创作的 BMAD 扩展包（MVP）。支持多份“离线文本/Markdown”资料→角度发现→大纲→首稿→SEO→落盘输出的完整流程。
+面向中文技术博客创作的 BMAD-METHOD 扩展包。支持多份“离线文本/Markdown”资料→角度发现→大纲→首稿→SEO→落盘输出的完整流程。
 
 - 配置：`bmad-tech-blog-pack/config.yaml`（`slashPrefix: bmad-blog`）
 
-- 代理：`agents/`（research-synthesizer, angle-finder, outline-architect, copywriter, doc-editor, seo-strategist）
+- 代理：`agents/`（blog-orchestrator, research-synthesizer, angle-finder, outline-architect, copywriter, doc-editor, seo-strategist）
 
 - 任务：`tasks/`（ingest-sources, extract-claims-quotes, propose-angles, generate-outline, write-draft, seo-polish, doc-out）
 
@@ -13,6 +13,36 @@
 - 检查清单：`checklists/seo-readiness-checklist.md`
 
 - 工作流：`workflows/blog-from-refs.yaml`, `workflows/blog-one-shot.yaml`
+
+## 安装与使用
+
+1. 克隆本仓库
+
+   ```bash
+   git clone git@github.com:terryso/bmad-tech-blog-pack.git
+   cd bmad-tech-blog-pack
+   ```
+
+2. 安装打包工具（需要已安装 uv）
+
+   ```bash
+   uv tool install bmad-pack-installer
+   ```
+
+3. 部署扩展包到你的博客项目（该项目需已安装并初始化 BMAD-METHOD）
+
+   ```bash
+   # 在本仓库根目录执行
+   bmad-pack-installer deploy . /path/to/your/blog_project
+   ```
+
+   提示：将 `/path/to/your/blog_project` 替换为你的博客工程根目录路径。
+
+4. 启动Claude Code, 切换到blog-orchestrator角色
+
+   ```bash
+   /bmad-blog:agents:blog-orchestrator
+   ```
 
 ## Quickstart（离线、中文、放在本仓库）
 
